@@ -1,15 +1,17 @@
-import Addition.addition_menu;
-import Division.division_menu;
-import Multiplication.multiplication_menu;
-import Subtraction.subtraction_menu;
+import Abstract.PrintOp;
+import Abstract.CalcOp;
+import Addition.*;
+import Division.*;
+import Multiplication.*;
+import Subtraction.*;
 import java.util.Scanner;
 import Exception.MismatchException;
-
+import CalculatorFactory.CalculationFactory;
 public class Main
 {
     protected static void main_menu_print()
     {
-        System.out.println("*****CALCULATOR*****\n");
+        System.out.println("\n*****CALCULATOR*****\n");
         System.out.println("0. Exit");
         System.out.println("1. Addition");
         System.out.println("2. Subtraction");
@@ -37,25 +39,42 @@ public class Main
                 main_menu_print();
                 choice = input.nextInt();
             }
+            CalculationFactory calculationFactory = new CalculationFactory();
+            PrintOp print = new PrintOp();
+            CalcOp calcOp;
+            float[] inputs;
+            float output;
             switch (choice) {
                 case 0:
                     System.exit(0);
                     break;
                 case 1:
-                    addition_menu add = new addition_menu();
-                    add.addition_func();
+                    calcOp = calculationFactory.selectCalculation(choice);
+                    AdditionMenu add = new AdditionMenu();
+                    inputs = add.addition_func();
+                    output = calcOp.performCalc(inputs[0],inputs[1]);
+                    print.performPrint(output);
                     break;
                 case 2:
-                    subtraction_menu sub = new subtraction_menu();
-                    sub.sub_func();
+                    calcOp = calculationFactory.selectCalculation(choice);
+                    SubtractionMenu sub = new SubtractionMenu();
+                    inputs = sub.sub_func();
+                    output = calcOp.performCalc(inputs[0],inputs[1]);
+                    print.performPrint(output);
                     break;
                 case 3:
-                    multiplication_menu mul = new multiplication_menu();
-                    mul.mul_func();
+                    calcOp = calculationFactory.selectCalculation(choice);
+                    MultiplicationMenu mul = new MultiplicationMenu();
+                    inputs = mul.mul_func();
+                    output = calcOp.performCalc(inputs[0],inputs[1]);
+                    print.performPrint(output);
                     break;
                 case 4:
-                    division_menu div = new division_menu();
-                    div.div_func();
+                    calcOp = calculationFactory.selectCalculation(choice);
+                    DivisionMenu div = new DivisionMenu();
+                    inputs = div.div_func();
+                    output = calcOp.performCalc(inputs[0],inputs[1]);
+                    print.performPrint(output);
                     break;
             }
         }while (choice !=0);
