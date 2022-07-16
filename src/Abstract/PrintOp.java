@@ -1,7 +1,7 @@
 package Abstract;
 public class PrintOp
 {
-    public void performPrint(float result)
+    public void performPrint(double result)
     {
         System.out.print(result);
     }

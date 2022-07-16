@@ -2,18 +2,20 @@ package Division;
 import Abstract.*;
 import Exception.DivException;
 
-public class DivOp implements CalcOp
+public class DivOp implements CalcOps
 {
+    DivisionMenu divMenu = new DivisionMenu();
+    double[] inputs = divMenu.div_func();
     @Override
-    public float performCalc(float first, float second) throws DivException
+    public double performCalc() throws DivException
     {
-        if(second == 0)
+        if(inputs[1] == 0)
         {
             throw new DivException("Cannot divide by zero");
         }
         else
         {
-            return first / second;
+            return inputs[0] / inputs[1];
         }
     }
 }

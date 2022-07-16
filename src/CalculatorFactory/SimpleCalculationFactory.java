@@ -1,16 +1,19 @@
 package CalculatorFactory;
-import Abstract.CalcOp;
+import Abstract.CalcOps;
 import Addition.AddOp;
 import Division.DivOp;
 import Multiplication.MulOp;
 import Subtraction.SubOp;
-
-public class CalculationFactory
+public class SimpleCalculationFactory extends AbstractCalcFactory
 {
-    public CalcOp selectCalculation(int option)
+
+    @Override
+    public CalcOps selectCalculation(int option)
     {
         switch (option)
         {
+            case 0:
+                System.exit(0);
             case 1:
                 return new AddOp();
             case 2:

@@ -5,10 +5,10 @@ public class SubtractionMenu
 {
     Scanner input = new Scanner(System.in);
 
-    public float[] sub_func()
+    public double[] sub_func()
     {
         System.out.println("\nPlease enter the first number: ");
-        float[] inputs = new float[2];
+        double[] inputs = new double[2];
         if(input.hasNextFloat())
         {
             inputs[0] = input.nextFloat();

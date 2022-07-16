@@ -4,10 +4,10 @@ import Exception.MismatchException;
 public class AdditionMenu
 {
     Scanner input = new Scanner(System.in);
-    public float[] addition_func()
+    public double[] addition_func()
     {
         System.out.println("\nPlease enter the first number: ");
-        float[] inputs = new float[2];
+        double[] inputs = new double[2];
         if(input.hasNextFloat())
         {
             inputs[0] = input.nextFloat();

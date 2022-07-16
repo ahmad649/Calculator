@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class DivisionMenu
 {
     Scanner input = new Scanner(System.in);
-    public float[] div_func()
+    public double[] div_func()
     {
         System.out.println("\nPlease enter the first number: ");
-        float[] inputs = new float[2];
+        double[] inputs = new double[2];
         if(input.hasNextFloat())
         {
             inputs[0] = input.nextFloat();

@@ -1,11 +1,13 @@
 package Multiplication;
 import Abstract.*;
 
-public class MulOp implements CalcOp
+public class MulOp implements CalcOps
 {
+    MultiplicationMenu mulMenu = new MultiplicationMenu();
+    double[] inputs = mulMenu.mul_func();
     @Override
-    public float performCalc(float first, float second)
+    public double performCalc()
     {
-        return first * second;
+        return inputs[0] * inputs[1];
     }
 }

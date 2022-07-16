@@ -1,11 +1,13 @@
 package Subtraction;
 import Abstract.*;
 
-public class SubOp implements CalcOp
+public class SubOp implements CalcOps
 {
+    SubtractionMenu subMenu = new SubtractionMenu();
+    double[] inputs = subMenu.sub_func();
     @Override
-    public float performCalc(float first, float second)
+    public double performCalc()
     {
-        return first - second;
+        return inputs[0] - inputs[1];
     }
 }

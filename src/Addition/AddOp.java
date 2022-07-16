@@ -2,11 +2,14 @@ package Addition;
 
 import Abstract.*;
 
-public class AddOp implements CalcOp
+public class AddOp implements CalcOps
 {
+    AdditionMenu addMenu = new AdditionMenu();
+    double[] inputs = addMenu.addition_func();
+
     @Override
-    public float performCalc(float first, float second)
+    public double performCalc()
     {
-        return first + second;
+        return inputs[0] + inputs[1];
     }
 }
